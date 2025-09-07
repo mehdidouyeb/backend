@@ -49,6 +49,8 @@ class Message {
      */
     async getChatHistory(userId1, userId2, limit = 50) {
         return new Promise((resolve, reject) => {
+            console.log(`getChatHistory called with: userId1=${userId1}, userId2=${userId2}, limit=${limit}`);
+
             const query = `
         SELECT 
           m.id,
@@ -68,8 +70,10 @@ class Message {
 
             this.db.all(query, [userId1, userId2, userId2, userId1, limit], (err, rows) => {
                 if (err) {
+                    console.error(`getChatHistory error:`, err);
                     reject(err);
                 } else {
+                    console.log(`getChatHistory found ${rows?.length || 0} messages:`, rows);
                     resolve(rows || []);
                 }
             });

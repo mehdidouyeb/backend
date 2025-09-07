@@ -154,6 +154,8 @@ class SocketHandlers {
         try {
             const { other_user_id, limit = 50 } = data;
 
+            console.log(`handleGetChatHistory: socket.userId=${socket.userId}, socket.username=${socket.username}, other_user_id=${other_user_id}`);
+
             if (!other_user_id) {
                 socket.emit('error', { message: 'Invalid request data' });
                 return;

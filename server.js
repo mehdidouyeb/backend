@@ -93,19 +93,6 @@ app.use((err, req, res, next) => {
  * Purpose: Configure Socket.io for real-time messaging
  */
 
-// Socket authentication middleware
-io.use((socket, next) => {
-    socketAuthService.authenticateSocket(socket, next);
-});
-
-// Initialize socket handlers
-const socketHandlers = new SocketHandlers(io);
-
-// Handle socket connections
-io.on('connection', (socket) => {
-    socketHandlers.handleConnection(socket);
-});
-
 /**
  * Server Startup
  * Purpose: Initialize database and start listening for requests
@@ -115,6 +102,19 @@ async function startServer() {
         // Initialize database first
         await database.initialize();
         console.log('Database initialized successfully');
+
+        // Initialize socket handlers AFTER database is ready
+        const socketHandlers = new SocketHandlers(io);
+
+        // Socket authentication middleware
+        io.use((socket, next) => {
+            socketAuthService.authenticateSocket(socket, next);
+        });
+
+        // Handle socket connections
+        io.on('connection', (socket) => {
+            socketHandlers.handleConnection(socket);
+        });
 
         // Start server (using server instead of app for Socket.io)
         server.listen(config.PORT, () => {

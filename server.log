@@ -5,7 +5,1351 @@ Database initialized successfully
 Server running on port 3000
 Health check: http://localhost:3000/health
 WebSocket server ready for connections
-2025-09-07T02:03:44.927Z - GET /health
-2025-09-07T02:03:53.694Z - POST /auth/register
-2025-09-07T02:04:11.048Z - POST /auth/login
-2025-09-07T02:04:22.504Z - GET /users/search
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: OsUdQuLj9ygWB-KMAAAB for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=3
+getChatHistory called with: userId1=3, userId2=3, limit=50
+getChatHistory found 0 messages: []
+Sent 0 messages to mehdi
+User mehdi disconnected
+2025-09-07T03:00:58.450Z - GET /users/search
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: BErLXnK4ST3YM0KHAAAD for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 4 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  }
+]
+Sent 4 messages to yasmine
+Message sent from yasmine to mehdi
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 5 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  }
+]
+Sent 5 messages to yasmine
+2025-09-07T03:01:22.427Z - POST /auth/login
+2025-09-07T03:01:25.698Z - GET /users/search
+2025-09-07T03:01:26.829Z - GET /users/search
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=5
+getChatHistory called with: userId1=5, userId2=5, limit=50
+getChatHistory found 0 messages: []
+Sent 0 messages to yasmine
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: kN33sKdCIvXC7cccAAAF for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 5 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  }
+]
+Sent 5 messages to mehdi
+User mehdi disconnected
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: FzdPZbocI2QaZi2WAAAH for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 5 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  }
+]
+Sent 5 messages to mehdi
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: CM8-p_n4GsjedDpbAAAJ for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 5 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  }
+]
+Sent 5 messages to mehdi
+Message sent from mehdi to yasmine
+User mehdi disconnected
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: kDNC0yY6RFvNodOzAAAL for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 6 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  }
+]
+Sent 6 messages to mehdi
+2025-09-07T03:02:57.369Z - POST /auth/login
+2025-09-07T03:03:00.581Z - GET /users/search
+2025-09-07T03:03:01.619Z - GET /users/search
+User mehdi disconnected
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: yUhb2noaADGHNEf_AAAN for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 6 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  }
+]
+Sent 6 messages to mehdi
+Message sent from mehdi to yasmine
+User mehdi disconnected
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: A4PQGhOt29KJrwMDAAAP for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 7 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  }
+]
+Sent 7 messages to mehdi
+2025-09-07T03:03:17.751Z - POST /auth/login
+2025-09-07T03:03:23.037Z - GET /users/search
+User mehdi disconnected
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: dBnACLy55iusPZYpAAAR for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 7 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  }
+]
+Sent 7 messages to yasmine
+Message sent from yasmine to mehdi
+User yasmine disconnected
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: 7uaFajT0c2BW33wbAAAT for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 8 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  }
+]
+Sent 8 messages to yasmine
+User yasmine disconnected
+User yasmine disconnected
+User mehdi disconnected
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: 3rNW8YJjWX_rYcAlAAAV for user yasmine
+User yasmine disconnected
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: NFz4-Uy7DPC_yDNvAAAX for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 8 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  }
+]
+Sent 8 messages to yasmine
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: WfzIiDtOWhJiuMNyAAAZ for user mehdi
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: QSzbusaZE4GhiMAXAAAb for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: F7HI66-L-kHaemagAAAd for user yasmine
+Message sent from yasmine to mehdi
+Message sent from yasmine to mehdi
+User yasmine disconnected
+User mehdi disconnected
+User yasmine disconnected
+User yasmine disconnected
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: _SbmCvnBkb7I40KCAAAf for user mehdi
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: X8KJ4J6MRJHQO1NoAAAh for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: EvJObATGq3i8_ABuAAAj for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: 4Xqan6rRT8j9hK3VAAAl for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 10 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  }
+]
+Sent 10 messages to yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: TclziEVH8Do2CVE6AAAn for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 10 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  }
+]
+Sent 10 messages to yasmine
+Message sent from yasmine to mehdi
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: vwmWr94TIUeHkjU7AAAp for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 11 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  },
+  {
+    id: 11,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassup riri',
+    timestamp: '2025-09-07 03:09:52',
+    from_username: 'yasmine'
+  }
+]
+Sent 11 messages to yasmine
+2025-09-07T03:10:15.164Z - POST /auth/login
+2025-09-07T03:10:20.313Z - GET /users/search
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: oCeIN_LYBNx-fusoAAAr for user yasmine
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 11 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  },
+  {
+    id: 11,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassup riri',
+    timestamp: '2025-09-07 03:09:52',
+    from_username: 'yasmine'
+  }
+]
+Sent 11 messages to yasmine
+2025-09-07T03:10:28.233Z - POST /auth/login
+2025-09-07T03:10:31.283Z - GET /users/search
+2025-09-07T03:10:32.380Z - GET /users/search
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: _71liPk2PmZVfzOZAAAt for user mehdi
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 11 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  },
+  {
+    id: 11,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassup riri',
+    timestamp: '2025-09-07 03:09:52',
+    from_username: 'yasmine'
+  }
+]
+Sent 11 messages to mehdi
+User mehdi disconnected
+User yasmine disconnected
+User mehdi disconnected
+User yasmine disconnected
+User yasmine disconnected
+User yasmine disconnected
+User yasmine disconnected
+User yasmine disconnected
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: jHJmINVrs-vyU7ydAAAv for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: cD0klWrBbyhBo6EkAAAx for user yasmine
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: BsJv5YiObi3YaJqoAAA1 for user mehdi
+User mehdi (ID: 3) connected via WebSocket
+Socket connected: WOxepX-sqse5EfH1AAA2 for user mehdi
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: wn-l3NCVtiKOPsLvAAA3 for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: LBM5O1-JueQQl1n2AAA6 for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: kHR7Tfz5cOgz-OQXAAA7 for user yasmine
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: QmYGGY3tENMo1t4IAAA9 for user yasmine
+2025-09-07T03:11:58.492Z - GET /users/search
+2025-09-07T03:11:59.346Z - GET /users/search
+handleGetChatHistory: socket.userId=3, socket.username=mehdi, other_user_id=5
+getChatHistory called with: userId1=3, userId2=5, limit=50
+getChatHistory found 11 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  },
+  {
+    id: 11,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassup riri',
+    timestamp: '2025-09-07 03:09:52',
+    from_username: 'yasmine'
+  }
+]
+Sent 11 messages to mehdi
+Message sent from mehdi to yasmine
+User mehdi disconnected
+2025-09-07T03:12:32.305Z - POST /auth/login
+User yasmine (ID: 5) connected via WebSocket
+Socket connected: mUzgauSHErDX_WYHAAA_ for user yasmine
+2025-09-07T03:12:35.013Z - GET /users/search
+handleGetChatHistory: socket.userId=5, socket.username=yasmine, other_user_id=3
+getChatHistory called with: userId1=5, userId2=3, limit=50
+getChatHistory found 12 messages: [
+  {
+    id: 1,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Mehdi',
+    timestamp: '2025-09-07 02:51:21',
+    from_username: 'yasmine'
+  },
+  {
+    id: 2,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Are u there ?',
+    timestamp: '2025-09-07 02:51:33',
+    from_username: 'yasmine'
+  },
+  {
+    id: 3,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yep Thanks and u ?',
+    timestamp: '2025-09-07 02:57:53',
+    from_username: 'mehdi'
+  },
+  {
+    id: 4,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yes and u ?',
+    timestamp: '2025-09-07 02:58:13',
+    from_username: 'mehdi'
+  },
+  {
+    id: 5,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Hey',
+    timestamp: '2025-09-07 03:01:06',
+    from_username: 'yasmine'
+  },
+  {
+    id: 6,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yepp',
+    timestamp: '2025-09-07 03:02:41',
+    from_username: 'mehdi'
+  },
+  {
+    id: 7,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:03:05',
+    from_username: 'mehdi'
+  },
+  {
+    id: 8,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Heyy',
+    timestamp: '2025-09-07 03:03:30',
+    from_username: 'yasmine'
+  },
+  {
+    id: 9,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Yoo',
+    timestamp: '2025-09-07 03:08:15',
+    from_username: 'yasmine'
+  },
+  {
+    id: 10,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassupp',
+    timestamp: '2025-09-07 03:08:31',
+    from_username: 'yasmine'
+  },
+  {
+    id: 11,
+    from_user_id: 5,
+    to_user_id: 3,
+    message: 'Wassup riri',
+    timestamp: '2025-09-07 03:09:52',
+    from_username: 'yasmine'
+  },
+  {
+    id: 12,
+    from_user_id: 3,
+    to_user_id: 5,
+    message: 'I am doing fine Thanks !!',
+    timestamp: '2025-09-07 03:12:12',
+    from_username: 'mehdi'
+  }
+]
+Sent 12 messages to yasmine
