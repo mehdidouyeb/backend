@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PostgreSQL WebSocket Test</title>
+</head>
+
+<body>
+    <h1>PostgreSQL WebSocket Test</h1>
+    <div id="status">Connecting...</div>
+    <div id="messages"></div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        // Test token for testuser
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc1NzI2MjA0NywiZXhwIjoxNzU3ODY2ODQ3fQ.yvVuACd0r1cgvtoujTQj90tKPWqoRkpp2p1VwpVjrWM';
+
+        const socket = io('http://localhost:3000', {
+            auth: {
+                token: token
+            }
+        });
+
+        const statusDiv = document.getElementById('status');
+        const messagesDiv = document.getElementById('messages');
+
+        socket.on('connect', () => {
+            statusDiv.innerHTML = '✅ Connected to PostgreSQL WebSocket!';
+            statusDiv.style.color = 'green';
+
+            // Test getting chat history
+            socket.emit('get_chat_history', { other_user_id: 2 });
+        });
+
+        socket.on('disconnect', () => {
+            statusDiv.innerHTML = '❌ Disconnected';
+            statusDiv.style.color = 'red';
+        });
+
+        socket.on('chat_history', (data) => {
+            messagesDiv.innerHTML += '<p><strong>Chat History:</strong> ' + JSON.stringify(data) + '</p>';
+        });
+
+        socket.on('connect_error', (error) => {
+            statusDiv.innerHTML = '❌ Connection Error: ' + error.message;
+            statusDiv.style.color = 'red';
+        });
+
+        socket.on('error', (error) => {
+            messagesDiv.innerHTML += '<p><strong>Error:</strong> ' + JSON.stringify(error) + '</p>';
+        });
+    </script>
+</body>
+
+</html>

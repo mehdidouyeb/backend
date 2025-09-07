@@ -38,8 +38,9 @@ router.get('/search', authenticateToken, async (req, res) => {
         // Search for users (excluding current user)
         const userModel = new User(database.getDb());
 
-        // Custom search method for users
-        const users = await searchUsers(userModel, searchTerm, req.user.id);
+        // Use the searchByUsername method from User model
+        const allUsers = await userModel.searchByUsername(searchTerm);
+        const users = allUsers.filter(user => user.id !== req.user.id);
 
         res.json({
             query: searchTerm,
@@ -55,33 +56,6 @@ router.get('/search', authenticateToken, async (req, res) => {
     }
 });
 
-/**
- * Search for users by username pattern
- * @param {User} userModel - User model instance
- * @param {string} searchTerm - Search term
- * @param {number} currentUserId - ID of current user (to exclude)
- * @returns {Promise<Array>} - Array of matching users
- */
-function searchUsers(userModel, searchTerm, currentUserId) {
-    return new Promise((resolve, reject) => {
-        const query = `
-      SELECT id, username, created_at 
-      FROM users 
-      WHERE username LIKE ? AND id != ?
-      ORDER BY username ASC
-      LIMIT 20
-    `;
-
-        const searchPattern = `%${searchTerm}%`;
-
-        userModel.db.all(query, [searchPattern, currentUserId], (err, rows) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(rows || []);
-            }
-        });
-    });
-}
+// Removed searchUsers function - now using User model's searchByUsername method
 
 module.exports = router;

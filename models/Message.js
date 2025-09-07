@@ -17,27 +17,20 @@ class Message {
      * @returns {Promise} - Resolves with message object
      */
     async create(fromUserId, toUserId, messageText) {
-        return new Promise((resolve, reject) => {
+        try {
             const query = `
-        INSERT INTO messages (from_user_id, to_user_id, message) 
-        VALUES (?, ?, ?)
-      `;
+                INSERT INTO messages (from_user_id, to_user_id, message) 
+                VALUES ($1, $2, $3) 
+                RETURNING id, from_user_id, to_user_id, message, timestamp
+            `;
 
-            this.db.run(query, [fromUserId, toUserId, messageText], function (err) {
-                if (err) {
-                    reject(err);
-                } else {
-                    // Return the created message with its ID
-                    resolve({
-                        id: this.lastID,
-                        from_user_id: fromUserId,
-                        to_user_id: toUserId,
-                        message: messageText,
-                        timestamp: new Date().toISOString()
-                    });
-                }
-            });
-        });
+            const result = await this.db.query(query, [fromUserId, toUserId, messageText]);
+
+            // Return the created message
+            return result.rows[0];
+        } catch (error) {
+            throw error;
+        }
     }
 
     /**
@@ -48,74 +41,64 @@ class Message {
      * @returns {Promise} - Resolves with array of messages
      */
     async getChatHistory(userId1, userId2, limit = 50) {
-        return new Promise((resolve, reject) => {
+        try {
             console.log(`getChatHistory called with: userId1=${userId1}, userId2=${userId2}, limit=${limit}`);
 
             const query = `
-        SELECT 
-          m.id,
-          m.from_user_id,
-          m.to_user_id,
-          m.message,
-          m.timestamp,
-          u.username as from_username
-        FROM messages m
-        JOIN users u ON m.from_user_id = u.id
-        WHERE 
-          (m.from_user_id = ? AND m.to_user_id = ?) OR 
-          (m.from_user_id = ? AND m.to_user_id = ?)
-        ORDER BY m.timestamp ASC
-        LIMIT ?
-      `;
+                SELECT 
+                    m.id,
+                    m.from_user_id,
+                    m.to_user_id,
+                    m.message,
+                    m.timestamp,
+                    u.username as from_username
+                FROM messages m
+                JOIN users u ON m.from_user_id = u.id
+                WHERE 
+                    (m.from_user_id = $1 AND m.to_user_id = $2) OR 
+                    (m.from_user_id = $2 AND m.to_user_id = $1)
+                ORDER BY m.timestamp ASC
+                LIMIT $3
+            `;
 
-            this.db.all(query, [userId1, userId2, userId2, userId1, limit], (err, rows) => {
-                if (err) {
-                    console.error(`getChatHistory error:`, err);
-                    reject(err);
-                } else {
-                    console.log(`getChatHistory found ${rows?.length || 0} messages:`, rows);
-                    resolve(rows || []);
-                }
-            });
-        });
+            const result = await this.db.query(query, [userId1, userId2, limit]);
+
+            console.log(`getChatHistory found ${result.rows.length} messages:`, result.rows);
+            return result.rows;
+        } catch (error) {
+            console.error('Error in getChatHistory:', error);
+            throw error;
+        }
     }
 
     /**
-     * Get recent conversations for a user
+     * Get recent messages for a user (for notifications, etc.)
      * @param {number} userId - User ID
-     * @returns {Promise} - Resolves with array of recent conversations
+     * @param {number} limit - Maximum number of messages
+     * @returns {Promise} - Resolves with array of recent messages
      */
-    async getRecentConversations(userId) {
-        return new Promise((resolve, reject) => {
+    async getRecentMessages(userId, limit = 10) {
+        try {
             const query = `
-        SELECT DISTINCT
-          CASE 
-            WHEN m.from_user_id = ? THEN m.to_user_id 
-            ELSE m.from_user_id 
-          END as other_user_id,
-          u.username as other_username,
-          m.message as last_message,
-          m.timestamp as last_message_time
-        FROM messages m
-        JOIN users u ON (
-          CASE 
-            WHEN m.from_user_id = ? THEN m.to_user_id = u.id
-            ELSE m.from_user_id = u.id
-          END
-        )
-        WHERE m.from_user_id = ? OR m.to_user_id = ?
-        ORDER BY m.timestamp DESC
-        LIMIT 20
-      `;
+                SELECT 
+                    m.id,
+                    m.from_user_id,
+                    m.to_user_id,
+                    m.message,
+                    m.timestamp,
+                    u.username as from_username
+                FROM messages m
+                JOIN users u ON m.from_user_id = u.id
+                WHERE m.to_user_id = $1
+                ORDER BY m.timestamp DESC
+                LIMIT $2
+            `;
 
-            this.db.all(query, [userId, userId, userId, userId], (err, rows) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(rows || []);
-                }
-            });
-        });
+            const result = await this.db.query(query, [userId, limit]);
+            return result.rows;
+        } catch (error) {
+            throw error;
+        }
     }
 }
 

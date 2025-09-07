@@ -1,0 +1,23 @@
+# Railway ignore file - don't upload these to Railway
+
+# Development files
+test-*.html
+*.log
+.env.local
+.env.development
+
+# Node modules (Railway will install from package.json)
+node_modules/
+
+# Database files (we'll use Railway's PostgreSQL)
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
