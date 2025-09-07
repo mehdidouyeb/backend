@@ -47,13 +47,37 @@ class Database {
         )
       `;
 
+            // Messages table: stores chat messages between users
+            const createMessagesTable = `
+        CREATE TABLE IF NOT EXISTS messages (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          from_user_id INTEGER NOT NULL,
+          to_user_id INTEGER NOT NULL,
+          message TEXT NOT NULL,
+          timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY (from_user_id) REFERENCES users (id),
+          FOREIGN KEY (to_user_id) REFERENCES users (id)
+        )
+      `;
+
+            // Create users table first
             this.db.run(createUsersTable, (err) => {
                 if (err) {
                     console.error('Error creating users table:', err.message);
                     reject(err);
                 } else {
                     console.log('Users table ready');
-                    resolve();
+
+                    // Then create messages table
+                    this.db.run(createMessagesTable, (err) => {
+                        if (err) {
+                            console.error('Error creating messages table:', err.message);
+                            reject(err);
+                        } else {
+                            console.log('Messages table ready');
+                            resolve();
+                        }
+                    });
                 }
             });
         });

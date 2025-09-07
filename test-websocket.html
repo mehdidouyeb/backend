@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebSocket Test Client</title>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+
+<body>
+    <h1>Chat App WebSocket Test</h1>
+
+    <div>
+        <h3>Login</h3>
+        <input type="text" id="username" placeholder="Username" value="testuser">
+        <input type="password" id="password" placeholder="Password" value="password123">
+        <button onclick="login()">Login</button>
+        <div id="loginStatus"></div>
+    </div>
+
+    <div id="chatSection" style="display:none;">
+        <h3>Send Message</h3>
+        <input type="number" id="toUserId" placeholder="To User ID" value="2">
+        <input type="text" id="messageText" placeholder="Message">
+        <button onclick="sendMessage()">Send Message</button>
+
+        <h3>Messages</h3>
+        <div id="messages" style="border: 1px solid #ccc; height: 300px; overflow-y: scroll; padding: 10px;"></div>
+    </div>
+
+    <script>
+        let socket = null;
+        let currentToken = null;
+
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    currentToken = data.token;
+                    document.getElementById('loginStatus').innerHTML =
+                        `<span style="color: green;">Logged in as ${data.user.username} (ID: ${data.user.id})</span>`;
+
+                    // Connect to WebSocket
+                    connectWebSocket();
+
+                    // Show chat section
+                    document.getElementById('chatSection').style.display = 'block';
+                } else {
+                    document.getElementById('loginStatus').innerHTML =
+                        `<span style="color: red;">Error: ${data.error}</span>`;
+                }
+            } catch (error) {
+                document.getElementById('loginStatus').innerHTML =
+                    `<span style="color: red;">Error: ${error.message}</span>`;
+            }
+        }
+
+        function connectWebSocket() {
+            socket = io('http://localhost:3000', {
+                auth: {
+                    token: currentToken
+                }
+            });
+
+            socket.on('connect', () => {
+                addMessage('System', 'Connected to WebSocket server', 'green');
+            });
+
+            socket.on('receive_message', (data) => {
+                addMessage(data.from_username, data.message, 'blue');
+            });
+
+            socket.on('message_sent', (data) => {
+                addMessage('You', data.message, 'gray');
+            });
+
+            socket.on('error', (data) => {
+                addMessage('Error', data.message, 'red');
+            });
+
+            socket.on('disconnect', () => {
+                addMessage('System', 'Disconnected from server', 'red');
+            });
+        }
+
+        function sendMessage() {
+            if (!socket) {
+                alert('Not connected to WebSocket');
+                return;
+            }
+
+            const toUserId = parseInt(document.getElementById('toUserId').value);
+            const message = document.getElementById('messageText').value;
+
+            if (!message.trim()) {
+                alert('Please enter a message');
+                return;
+            }
+
+            socket.emit('send_message', {
+                to_user_id: toUserId,
+                message: message.trim()
+            });
+
+            document.getElementById('messageText').value = '';
+        }
+
+        function addMessage(sender, message, color) {
+            const messagesDiv = document.getElementById('messages');
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML =
+                `<strong style="color: ${color};">${sender}:</strong> ${message} 
+                 <small style="color: #666;">(${new Date().toLocaleTimeString()})</small>`;
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Allow Enter key to send message
+        document.getElementById('messageText').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+
+</html>

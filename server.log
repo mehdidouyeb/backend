@@ -1,9 +1,11 @@
 Connected to SQLite database
 Users table ready
+Messages table ready
 Database initialized successfully
 Server running on port 3000
 Health check: http://localhost:3000/health
-2025-09-07T01:53:49.543Z - GET /health
-2025-09-07T01:54:00.864Z - POST /auth/register
-2025-09-07T01:54:19.961Z - POST /auth/login
-2025-09-07T01:54:25.988Z - GET /protected
+WebSocket server ready for connections
+2025-09-07T02:03:44.927Z - GET /health
+2025-09-07T02:03:53.694Z - POST /auth/register
+2025-09-07T02:04:11.048Z - POST /auth/login
+2025-09-07T02:04:22.504Z - GET /users/search

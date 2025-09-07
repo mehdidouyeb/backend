@@ -1,18 +1,32 @@
 /**
  * Main Server File
- * Purpose: Initialize and start the Express server
+ * Purpose: Initialize and start the Express server with WebSocket support
  * Why: Entry point that connects all components together
  */
 
 const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
 const cors = require('cors');
 const config = require('./config');
 const database = require('./database/db');
 const authRoutes = require('./routes/auth');
+const usersRoutes = require('./routes/users');
 const { authenticateToken } = require('./middleware/auth');
+const socketAuthService = require('./services/socketAuthService');
+const SocketHandlers = require('./handlers/socketHandlers');
 
 // Create Express application
 const app = express();
+// Create HTTP server (needed for Socket.io)
+const server = http.createServer(app);
+// Create Socket.io server
+const io = new Server(server, {
+    cors: {
+        origin: "*", // Allow all origins for development
+        methods: ["GET", "POST"]
+    }
+});
 
 /**
  * Middleware Setup
@@ -48,6 +62,9 @@ app.get('/health', (req, res) => {
 // Authentication routes (register, login)
 app.use('/auth', authRoutes);
 
+// User routes (search, etc.)
+app.use('/users', usersRoutes);
+
 // Protected route example - requires valid JWT token
 app.get('/protected', authenticateToken, (req, res) => {
     res.json({
@@ -72,6 +89,24 @@ app.use((err, req, res, next) => {
 });
 
 /**
+ * WebSocket Setup
+ * Purpose: Configure Socket.io for real-time messaging
+ */
+
+// Socket authentication middleware
+io.use((socket, next) => {
+    socketAuthService.authenticateSocket(socket, next);
+});
+
+// Initialize socket handlers
+const socketHandlers = new SocketHandlers(io);
+
+// Handle socket connections
+io.on('connection', (socket) => {
+    socketHandlers.handleConnection(socket);
+});
+
+/**
  * Server Startup
  * Purpose: Initialize database and start listening for requests
  */
@@ -81,10 +116,11 @@ async function startServer() {
         await database.initialize();
         console.log('Database initialized successfully');
 
-        // Start server
-        app.listen(config.PORT, () => {
+        // Start server (using server instead of app for Socket.io)
+        server.listen(config.PORT, () => {
             console.log(`Server running on port ${config.PORT}`);
             console.log(`Health check: http://localhost:${config.PORT}/health`);
+            console.log(`WebSocket server ready for connections`);
         });
 
     } catch (error) {
